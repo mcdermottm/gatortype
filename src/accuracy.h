@@ -8,6 +8,18 @@
 #ifndef ACCURACY_H_
 #define ACCURACY_H_
 
+//AccuracyCheck
+//---------------------
+//-String currentText
+//-int current position
+//---------------------
+//+void setCurrentText(String)
+//+String getCurrentText()
+//+void resetPosition()
+//+void advancePosition()
+//+bool isCorrect(char)
+//+char getNextChar()
+//+char getPrevChar()
 
 
 
