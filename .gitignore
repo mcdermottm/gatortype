@@ -1,3 +1,5 @@
 /Debug/
 /Debug/src/
 /.settings/
+.project
+.cproject
