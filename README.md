@@ -1,4 +1,5 @@
 # gatortype
 An alligator learns to type
 
-When you clean the Debug folder, copy the DLL files from /dll/ into the debug folder.
+FOR WINDOWS:
+copy the DLL files from your installation of SFML's bin folder into the debug directory next to src
