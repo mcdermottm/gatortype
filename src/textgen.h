@@ -51,8 +51,14 @@ public:
 	//If a fresh sentence is needed, use generateSentence instead
 
 	void setDifficulty(int newDiff);
+	//Used to change the saved difficulty value
 
 	int getDifficulty();
+	//Used to check the current difficulty value
+
+	std::string trimSentence(std::string input, int len);
+	//Trims the given sentence to be at or less than a specified length
+	//Used to fit sentences on screen of given size
 
 
 

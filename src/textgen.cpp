@@ -235,5 +235,23 @@ int TextGen::getDifficulty(){
 
 }
 
+std::string TextGen::trimSentence(std::string input, int len){
+
+
+	size_t lastSpace;
+
+	//While the input is too long, find the last space
+	//	then cut the space and everything after it off of the string
+	//	repeat until sentence is trimmed
+	//	If sentence is already trimmed, will just return the input sentence as given
+	while(input.size()>(unsigned)len){
+		lastSpace = input.find_last_of(' ');
+		input = input.substr(0, lastSpace);
+
+	}
+	return input;
+
+}
+
 
 
