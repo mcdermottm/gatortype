@@ -15,6 +15,7 @@
  * Example Code:
  *
  * TextGen generator;
+ * generator.setDifficulty(2);
  * std::cout << generator.generateSentence(2);
  * generator.dumpStruct(2);
  */
@@ -24,6 +25,7 @@ TextGen::TextGen(){
 
 	seedFolder = "data";
 	keyLength = 1;
+	diff = 0;
 
 	last = "";
 	current = "";
@@ -121,12 +123,12 @@ void TextGen::createDictionary(){
 }
 
 
-std::string TextGen::generateSentence(int difficulty){
+std::string TextGen::generateSentence(){
 
 	int sLength;
 	//This is where sentence length is defined
 
-	switch(difficulty){
+	switch(diff){
 
 	case 0:
 		sLength = 20;
@@ -142,7 +144,7 @@ std::string TextGen::generateSentence(int difficulty){
 
 	default:
 		sLength = 30;
-		difficulty = 2;
+		diff = 2;
 		break;
 	}
 
@@ -152,10 +154,10 @@ std::string TextGen::generateSentence(int difficulty){
 
 	std::string key, first, second;
 	//Construct iterator over map that corresponds to the correct difficulty
-	std::map<std::string, std::vector<std::string> >::iterator it = mStruct[difficulty].begin();
+	std::map<std::string, std::vector<std::string> >::iterator it = mStruct[diff].begin();
 
 	//Begin the key as a random member of the array
-	std::advance( it, rand() % mStruct[difficulty].size() );
+	std::advance( it, rand() % mStruct[diff].size() );
 	key = ( *it ).first;
 
 	//Begin the sentence with the key
@@ -164,7 +166,7 @@ std::string TextGen::generateSentence(int difficulty){
 	while( true ) {
 
 		//store the suffix vector of the given key in the given difficulty
-		std::vector<std::string> suffixes = mStruct[difficulty][key];
+		std::vector<std::string> suffixes = mStruct[diff][key];
 		//If there are no suffixes, end the sentence
 		if( suffixes.size() < 1 ){
 			break;
@@ -221,6 +223,15 @@ std::string TextGen::getLast(){
 
 std::string TextGen::getCurrent(){
 	return this->current;
+
+}
+
+void TextGen::setDifficulty(int newDif){
+	this->diff = newDif;
+}
+
+int TextGen::getDifficulty(){
+	return this->diff;
 
 }
 

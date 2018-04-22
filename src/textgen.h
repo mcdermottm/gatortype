@@ -34,7 +34,7 @@ public:
 	 *	Potentially added to constructor?
 	 */
 
-	std::string generateSentence(int difficulty);
+	std::string generateSentence();
 	/*Used by the actual game methods to generate a sentence of a given difficulty
 	 * Also updates the last/current fields
 	 *
@@ -50,6 +50,10 @@ public:
 	//Returns the current sentence, but does not generate a new one.
 	//If a fresh sentence is needed, use generateSentence instead
 
+	void setDifficulty(int newDiff);
+
+	int getDifficulty();
+
 
 
 private:
@@ -58,6 +62,10 @@ private:
 		//Used only by createDictionary to load each difficulty's structure
 
 	std::string seedFolder;
+
+	int diff;
+	//Stores the difficulty
+	//	modified by setDifficulty
 
 	int keyLength;
 	//Could be modified to a longer value
