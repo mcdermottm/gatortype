@@ -1,6 +1,7 @@
-/Debug/
-/Debug/src/
+/Debug/*.*
+/Debug/src/*.*
 /.settings/
+/Debug/
 .project
 .cproject
 
